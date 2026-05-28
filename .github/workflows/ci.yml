@@ -13,9 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup PostgreSQL database
         run: |
-          docker compose up -d
-          # For production, replace hardcoded "sleep" with healthcheck and --wait flag
-          sleep 15
+          docker compose up -d --wait
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -25,7 +23,7 @@ jobs:
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
       - name: Build backend
         working-directory: ./backend
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
 
   build_frontend:
     runs-on: ubuntu-latest
