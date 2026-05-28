@@ -46,8 +46,8 @@ public class Salon {
 
     private String phoneNumber;
     private String website;
-    private Double rating;
-    private Integer reviewCount;
+    private Double rating = 0.0;
+    private Integer reviewCount = 0;
 
     @Enumerated(EnumType.STRING)
     private PriceRange priceRange;
