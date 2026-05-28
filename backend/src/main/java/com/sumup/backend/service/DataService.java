@@ -140,7 +140,7 @@ public class DataService {
                 }
 
                 // other data fetching (rating, reviews, price, etc.)
-                if (salon.getRating() == null || salon.getPriceRange() == null) {
+                if (salon.getRating() == null || salon.getRating() == 0.0 || salon.getPriceRange() == null) {
 
                     GooglePlacesResponseDto.Element data = getPlacesDataFromGoogle(salon);
 
